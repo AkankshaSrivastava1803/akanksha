@@ -1,0 +1,29 @@
+<div>
+  <table>
+      <caption>Employees Table</caption>
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Salary</th>
+              <th>Date of Joining</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let emp of myUsers">
+              <td>
+                  {{emp.id}}
+              </td>
+              <td>
+                  {{emp.name}}
+              </td>
+              <td>
+                  {{emp.Salary}}
+              </td>
+              <td>
+                  {{emp.doj.getDate()+"-"+emp.doj.getMonth()+"-"+emp.doj.getFullYear()}}
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</div>

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <h1 class="page-title">Employee reg form</h1>
+            <!--form-->
+            <form #registerForm="ngForm" (ngSubmit)="onSubmit(employee)">
+                <!-- firstname -->
+                <div class="col form-group">
+                    <label>First name</label>
+                    <input type="text" #fname="ngModel" required minlength="4" class="form-control" placeholder=""
+                        name="firstname" [(ngModel)]="employee.firstName">
+                    <div *ngIf="fname.touched && fname.invalid" class="alert alert-danger">
+                        <p *ngIf="fname.hasError('required')">Firstname is required!</p>
+                        <p *ngIf="fname.hasError('minlength')">Min length should be 4</p>
+                    </div>
+                </div>
+                <!-- lastname -->
+                <div class="col form-group">
+                    <label>Last name</label>
+                    <input type="text" #lname="ngModel" required minlength="4" class="form-control" placeholder=""
+                        name="lastname" [(ngModel)]="employee.lastName">
+                    <div *ngIf="lname.touched && lname.invalid" class="alert alert-danger">
+                        <p *ngIf="lname.hasError('required')">lastname is required!</p>
+                        <p *ngIf="lname.hasError('minlength')">Min length should be 4</p>
+                    </div>
+                </div>
+                <div class="col form-group">
+                    <label>Profession</label>
+                    <input type="text" #profession="ngModel" required minlength="4" class="form-control" placeholder=""
+                        name="profession" [(ngModel)]="employee.profession">
+                    <div *ngIf="profession.touched && profession.invalid" class="alert alert-danger">
+                        <p *ngIf="profession.hasError('required')">Profession is required!</p>
+                        <p *ngIf="profession.hasError('minlength')">Min length should be 4</p>
+                    </div>
+                </div>
+                <div class="col form-group">
+                    <label>Email</label>
+                    <input type="text" #email="ngModel" required minlength="4" class="form-control" placeholder=""
+                        name="email" [(ngModel)]="employee.email">
+                    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                        <p *ngIf="email.hasError('required')">Email is required!</p>
+                        <p *ngIf="email.hasError('minlength')">Min length should be 4</p>
+                    </div>
+                </div>
+                <!--register button-->
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block"
+                        [disabled]="!registerForm.form.valid">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
